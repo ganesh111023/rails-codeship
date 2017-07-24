@@ -18,9 +18,19 @@
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.trix_editor :description, id: :post_description %>
+    <%= form.trix_editor :description, id: :post_description, class: 'description' %>
+
   </div>
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+<script>
+
+  $(document).on('change', '#custom_select', function() {
+    element = document.querySelector("trix-editor")
+    element.editor.insertString($(this).val());
+  });
+
+
+</script>
